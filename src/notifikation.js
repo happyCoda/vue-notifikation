@@ -1,8 +1,8 @@
-let NotifiqationComponent = require('./notifikation.vue'),
-  Notifiqation = {};
+let NotifikationComponent = require('./notifikation.vue'),
+  Notifikation = {};
 
-Notifiqation.install = function (Vue, options) {
-  let Component = Vue.extend(NotifiqationComponent),
+Notifikation.install = function (Vue, options) {
+  let Component = Vue.extend(NotifikationComponent),
     queue = [];
 
   Vue.prototype.$show = function (options) {
@@ -36,4 +36,4 @@ Notifiqation.install = function (Vue, options) {
   };
 };
 
-export default Notifiqation;
+export default Notifikation;

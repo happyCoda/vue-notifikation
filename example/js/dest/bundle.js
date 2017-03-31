@@ -7246,11 +7246,11 @@ exports.insert = function (css) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var NotifiqationComponent = require('./notifikation.vue'),
-    Notifiqation = {};
+var NotifikationComponent = require('./notifikation.vue'),
+    Notifikation = {};
 
-Notifiqation.install = function (Vue, options) {
-  var Component = Vue.extend(NotifiqationComponent),
+Notifikation.install = function (Vue, options) {
+  var Component = Vue.extend(NotifikationComponent),
       queue = [];
 
   Vue.prototype.$show = function (options) {
@@ -7284,7 +7284,7 @@ Notifiqation.install = function (Vue, options) {
   };
 };
 
-exports.default = Notifiqation;
+exports.default = Notifikation;
 
 },{"./notifikation.vue":8}],8:[function(require,module,exports){
 var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert(".report[data-v-04e12a9f] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: absolute;\n  border-radius: 4px;\n}\n.report.ololo-enter-active[data-v-04e12a9f] {\n  transition: all .3s ease;\n}\n.report.ololo-enter[data-v-04e12a9f] {\n  transform: translateX(10px);\n  opacity: 0;\n}")
