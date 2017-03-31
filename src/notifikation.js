@@ -3,36 +3,77 @@ let NotifikationComponent = require('./notifikation.vue'),
 
 Notifikation.install = function (Vue, options) {
   let Component = Vue.extend(NotifikationComponent),
-    queue = [];
+    queue = [],
+    vm;
 
   Vue.prototype.$show = function (options) {
-    let vm = (new Component({
-        data: {
-          message: options.message,
-          style: {
-            width: options.width || '100px',
-            height: options.height || '50px',
-            backgroundColor: options.backgroundColor || 'rgb(113, 111, 115)',
-            color: options.color || 'rgb(255, 255, 255)',
-            right: options.right || '10px',
-            top: `${queue.length > 0 ? (queue.length * 50) + (queue.length * 10) + 10 : 10}px`
-          }
-        }
-      })).$mount(),
+    let notifikationItem,
+      items,
+      itemsLen,
+      bgColor,
+      textColor = 'rgb(255, 255, 255)',
       body = document.querySelector('body');
 
-    queue.push(vm);
+    if (options.level === 'error') {
+      bgColor = 'rgb(214, 38, 36)';
+    } else if (options.level === 'success') {
+      bgColor = 'rgb(134, 193, 73)';
+    } else {
+      bgColor = 'rgb(148, 144, 152)';
+    }
+
+    if (!vm) {
+      let selector = options.selector || '#notifikation';
+
+      if (!document.querySelector(selector)) {
+        let el = document.createElement('div');
+
+        el.setAttribute('id', 'notifikation');
+        document.querySelector('body').appendChild(el);
+      }
+
+      vm = (new Component({
+        data: {
+          items: []
+        }
+      })).$mount(selector);
+    }
+    items = vm.$data.items;
+    itemsLen = items.length;
+
+    notifikationItem = {
+      message: options.message,
+      style: {
+        width: options.width || '200px',
+        height: options.height || '50px',
+        backgroundColor: options.backgroundColor || bgColor,
+        color: options.color || textColor,
+        right: options.right || '10px',
+        top: `${itemsLen > 0 ? (itemsLen * 50) + (itemsLen * 10) + 10 : 10}px`
+      }
+    };
+
+    items.push(notifikationItem);
     setTimeout(() => {
-      body.removeChild(vm.$el);
-      vm.$destroy();
-      vm = null;
-      queue.shift();
-      queue.forEach((comp) => {
-        comp.$data.top = `${parseInt(comp.$data.top, 10) - 60}px`;
+      items.shift();
+      items.forEach((item) => {
+        item.style.top = `${parseInt(item.style.top, 10) - 60}px`;
       });
     }, options.duration || 3000);
+  };
 
-    body.appendChild(vm.$el);
+  Vue.prototype.$info = function (options) {
+    this.$show(options);
+  };
+  Vue.prototype.$error = function (options) {
+    this.$show(Object.assign(options, {
+      level: 'error'
+    }));
+  };
+  Vue.prototype.$success = function (options) {
+    this.$show(Object.assign(options, {
+      level: 'success'
+    }));
   };
 };
 

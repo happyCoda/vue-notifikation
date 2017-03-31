@@ -11,5 +11,5 @@ git clone https://github.com/happyCoda/vue-notifikation.git
 An `npm` package also available:
 
 ```shell
-$ npm install chronos-js
+$ npm install vue-notifikation
 ```
