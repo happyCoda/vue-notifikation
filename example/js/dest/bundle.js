@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("body {\n  background: #d7dad8;\n}")
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("* {\n  margin: 0 auto;\n}\nbody {\n  font: normal 82.5%/1.5 Arial, Helvetica, sans-serif;\n  color: #fffeba;\n  background: #37405c;\n}\n.container[data-v-2e737726] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 70%;\n  margin: 20px auto;\n  padding: 10px;\n  box-sizing: border-box;\n  background: #44778c;\n  border-radius: 4px;\n}\n.greet[data-v-2e737726] {\n  font-size: 2em;\n  text-transform: capitalize;\n}\n.btn[data-v-2e737726] {\n  color: #37405c;\n  background: #f5d364;\n  border: none;\n  padding: 10px;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none;\n}")
 ;(function(){
 'use strict';
 
@@ -8,21 +8,27 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = {
   name: 'App',
-  created: function created() {
-    this.$show({ message: 'Hello!' });
-  },
   data: function data() {
     return {
       greet: 'vue-notifikation plugin'
     };
+  },
+
+  methods: {
+    clickHandler: function clickHandler() {
+      this.$show({
+        message: 'Hello'
+      });
+    }
   }
 };
 })()
 if (module.exports.__esModule) module.exports = module.exports.default
 var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container"},[_vm._v("\n  "+_vm._s(_vm.greet)+"\n")])}
+__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container"},[_c('p',{staticClass:"greet"},[_vm._v(_vm._s(_vm.greet))]),_vm._v(" "),_c('button',{staticClass:"btn",attrs:{"type":"button","name":"button"},on:{"click":_vm.clickHandler}},[_vm._v("Notify Me!")])])}
 __vue__options__.staticRenderFns = []
+__vue__options__._scopeId = "data-v-2e737726"
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
@@ -31,7 +37,7 @@ if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   if (!module.hot.data) {
     hotAPI.createRecord("data-v-2e737726", __vue__options__)
   } else {
-    hotAPI.reload("data-v-2e737726", __vue__options__)
+    hotAPI.rerender("data-v-2e737726", __vue__options__)
   }
 })()}
 },{"vue":5,"vue-hot-reload-api":4,"vueify/lib/insert-css":6}],2:[function(require,module,exports){
