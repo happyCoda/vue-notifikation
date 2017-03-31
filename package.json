@@ -1,0 +1,44 @@
+{
+  "name": "vue-notifikation",
+  "version": "0.0.1",
+  "description": "vue plugin for notifications",
+  "scripts": {},
+  "keywords": [
+    "gulp",
+    "vuejs",
+    "js",
+    "plugin",
+    "notifications"
+  ],
+  "author": "happyCoda",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-plugin-transform-regenerator": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-runtime": "^6.23.0",
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.18.8",
+    "browserify": "^14.1.0",
+    "eslintify": "^3.1.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-less": "^3.3.0",
+    "gulp-load-tasks": "^0.8.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sequence": "^0.4.6",
+    "gulp-util": "^3.0.8",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.4.1",
+    "karma-browserify": "^5.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "uglifyify": "^3.0.4",
+    "vinyl-source-stream": "^1.1.0",
+    "vueify": "^9.4.1",
+    "watchify": "^3.9.0"
+  },
+  "dependencies": {
+    "vue": "^2.2.4"
+  }
+}
