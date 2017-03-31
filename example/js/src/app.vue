@@ -1,11 +1,14 @@
 <template lang="html">
   <div class="container">
     <p class="greet">{{ greet }}</p>
-    <button
-      v-on:click="clickHandler"
-      class="btn"
-      type="button"
-      name="button">Notify Me!</button>
+    <div class="btns">
+      <button
+        v-for="btn in btns"
+        v-on:click="clickHandler(btn.txt)"
+        v-bind:class="{btn: true, [btn.className]: true}"
+        type="button"
+        name="button">{{ btn.txt }}</button>
+    </div>
   </div>
 </template>
 
@@ -14,13 +17,31 @@
     name: 'App',
     data() {
       return {
-        greet: 'vue-notifikation plugin'
+        greet: 'vue notifikation plugin',
+        count: 0,
+        btns: [
+          {
+            txt: 'Error',
+            className: 'red'
+          },
+          {
+            txt: 'Success',
+            className: 'green'
+          },
+          {
+            txt: 'Info',
+            className: 'grey'
+          }
+        ]
       };
     },
     methods: {
-      clickHandler() {
-        this.$show({
-          message: `Hello`
+      clickHandler(level) {
+
+        this[`$${level.substr(0, 1).toLowerCase() + level.substr(1)}`]({
+          message: `Hello#${this.count++}`,
+          selector: '#notifikation',
+          color: 'rgb(255, 254, 186)'
         });
       }
     }
@@ -29,7 +50,7 @@
 
 <style lang="less">
   * {
-    margin: 0 auto;
+    margin: 0;
   }
   body {
     font: normal 82.5%/1.5 Arial, Helvetica, sans-serif;
@@ -42,13 +63,18 @@
   @colorYellowSand: rgb(255, 254, 186);
   @colorBluishGrey: rgb(68, 119, 140);
   @colorNavyBlue: rgb(67, 186, 186);
-  @colorOrangeSans: rgb(245, 211, 100);
+  @colorOrangeSand: rgb(245, 211, 100);
+  @colorRed: rgb(214, 38, 36);
+  @colorGreen: rgb(134, 193, 73);
+  @colorGrey: rgb(148, 144, 152);
+  @colorWhite: rgb(255, 255, 255);
 
   .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 70%;
+    min-width: 600px;
     margin: 20px auto;
     padding: 10px;
     box-sizing: border-box;
@@ -61,13 +87,39 @@
     text-transform: capitalize;
   }
 
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+  }
+
   .btn {
+    width: 30%;
     color: @colorDarkGrey;
-    background: @colorOrangeSans;
+    background: @colorOrangeSand;
     border: none;
     padding: 10px;
     border-radius: 4px;
     cursor: pointer;
     outline: none;
+
+    &.red,
+    &.green,
+    &.grey {
+      color: @colorYellowSand;
+      font-weight: bold;
+    }
+
+    &.red {
+      background: @colorRed;
+    }
+
+    &.green {
+      background: @colorGreen;
+    }
+
+    &.grey {
+      background: @colorGrey
+    }
   }
 </style>

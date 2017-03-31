@@ -1,39 +1,41 @@
 <template lang="html">
-  <transition
-    name="ololo"
-    >
-    <div
-      class="report"
-      v-if="true"
-      v-bind:style="style"
-    >{{ message }}</div>
-  </transition>
+  <div class="notifikation">
+    <transition-group name="fade" tag="div">
+      <div
+        class="notification__item"
+        v-for="item, key in items"
+        v-bind:key="key"
+        v-bind:style="item.style"
+      >{{ item.message }}</div>
+    </transition-group>
+  </div>
+
+
 </template>
 <script>
   export default {
     name: 'Notifikation',
-    props: ['message', 'top']
+    props: ['items']
   }
 </script>
 <style lang="less" scoped>
-  .report {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    border-radius: 4px;
+  .notification {
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      border-radius: 4px;
+      box-shadow: 1px 1px 10px rgba(0, 0, 0, .4);
 
-    &.ololo-enter-active {
-      transition: all .3s ease;
+      &.fade-enter-active,
+      &.fade-leave-active {
+        transition: opacity .5s;
+      }
+      &.fade-enter,
+      &.fade-leave-to {
+        opacity: 0;
+      }
     }
-
-    &.ololo-enter {
-      transform: translateX(10px);
-      opacity: 0;
-    }
-
-    // &.ololo-leave-active {
-    //   top: 100px;
-    // }
   }
 </style>
