@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import VueReport from '../../../src/notifikation';
+import VueNotifikation from '../../../src/notifikation';
 import AppComponent from './app.vue';
 
-Vue.use(VueReport);
+Vue.use(VueNotifikation);
 
 new Vue({
   el: '#app',
