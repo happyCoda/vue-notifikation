@@ -41,15 +41,22 @@ Notifikation.install = function (Vue, options) {
     items = vm.$data.items;
     itemsLen = items.length;
 
+    function calculateTop(options) {
+      let height = options.height || 50,
+        top = options.top || 10;
+
+      return `${itemsLen > 0 ? (itemsLen * height) + (itemsLen * top) + top : top}px`;
+    }
+
     notifikationItem = {
-      message: options.message,
+      message: options.message || 'Notified!',
       style: {
-        width: options.width || '200px',
-        height: options.height || '50px',
+        width: `${options.width || 200}px`,
+        height: `${options.height || 50}px`,
         backgroundColor: options.backgroundColor || bgColor,
         color: options.color || textColor,
-        right: options.right || '10px',
-        top: `${itemsLen > 0 ? (itemsLen * 50) + (itemsLen * 10) + 10 : 10}px`
+        right: `${options.right || 10}px`,
+        top: calculateTop(options)
       }
     };
 

@@ -81,15 +81,18 @@ this.$info(options);
 
 #### options
 All 4 API methods expects an options object with some configuration data to setup notification.
-`level` - sets notification level (e.g.: error). This parameter can be useful with `$show` method only. If didn't specified, `info` level will be set by default.
-`selector` - sets selector for DOM container, where your notifications will be rendered.
-`message` - notification message to show.
-`duration` - time in milliseconds before notification will be dismissed.
-`width` - notification width. Default value is 200px.
-`height` - notification height. Default value is 50px.
-`backgroundColor` - notification background color.
-`color` - notification text color.
-`right` - notification offset from the right window boundary. Default value is 10px.
+
+| Name | Type | Default | Description |
+|---|---|---|---|
+| `level` | `String` | `info` |  Sets notification level (e.g.: error). This parameter can be useful with `$show` method only. |
+| `selector` | `String` | '#notifikation' | Sets selector for DOM container, where your notifications will be rendered. |
+| `message` | `String` | 'Notified!' | Notification message to show. |
+| `duration` | `Number` | `3000` |  Time in milliseconds before notification will be dismissed. |
+| `width` | `Number` | `200` |  Notification width. |
+| `height` | `Number` | `50` |  Notification height. |
+| `backgroundColor` | `String` | `undefined` |  Notification background color. |
+| `color` | `String` | `undefined` |  Notification text color. |
+| `right` | `Number` | `10` |  Notification offset from the right window boundary. |
 
 ### Examples
 Let's create notification for some successful event.
