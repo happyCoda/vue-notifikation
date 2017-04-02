@@ -9,8 +9,6 @@
       >{{ item.message }}</div>
     </transition-group>
   </div>
-
-
 </template>
 <script>
   export default {

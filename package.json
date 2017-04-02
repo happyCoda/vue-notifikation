@@ -1,25 +1,32 @@
 {
   "name": "vue-notifikation",
-  "version": "0.2.2",
+  "version": "0.2.6",
   "description": "vue plugin for notifications",
+  "main": "dest/vue-notifikation.js",
   "scripts": {},
   "keywords": [
-    "gulp",
     "vuejs",
     "js",
     "plugin",
     "notifications"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/happyCoda/vue-notifikation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/happyCoda/vue-notifikation/issues"
+  },
+  "homepage": "https://github.com/happyCoda/vue-notifikation",
   "author": "happyCoda",
   "license": "ISC",
   "devDependencies": {
-    "babel-plugin-transform-regenerator": "^6.22.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-es2015": "^6.22.0",
-    "babel-runtime": "^6.23.0",
+    "babel-core": "^6.24.0",
+    "babel-preset-es2015": "^6.24.0",
     "babelify": "^7.3.0",
     "browser-sync": "^2.18.8",
     "browserify": "^14.1.0",
+    "browserify-derequire": "^0.9.4",
     "eslintify": "^3.1.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
