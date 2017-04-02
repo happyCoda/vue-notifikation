@@ -1,6 +1,6 @@
 {
   "name": "vue-notifikation",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "vue plugin for notifications",
   "main": "dest/vue-notifikation.js",
   "scripts": {},
