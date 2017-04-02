@@ -43,11 +43,7 @@ module.exports = (watch, done) => {
     })
     .transform(eslintify)
     .transform(babelify, {
-      presets: ['es2015'],
-      plugins: [
-        'transform-runtime',
-        'transform-regenerator'
-      ]
+      presets: ['es2015']
     })
     .transform(vueify),
     args = [b];

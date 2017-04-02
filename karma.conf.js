@@ -38,11 +38,7 @@ module.exports = function(config) {
     browserify: {
       debug: true,
       transform: [['babelify', {
-        presets: ['es2015'],
-        plugins: [
-          'transform-runtime',
-          'transform-regenerator'
-        ]
+        presets: ['es2015']
       }]]
     },
 
