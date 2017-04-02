@@ -1,8 +1,8 @@
 {
   "name": "vue-notifikation",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "vue plugin for notifications",
-  "main": "chronos.js",
+  "main": "dest/vue-notifikation.js",
   "scripts": {},
   "keywords": [
     "vuejs",
