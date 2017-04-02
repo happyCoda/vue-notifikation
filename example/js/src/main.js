@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import VueNotifikation from '../../../src/index';
+import VueNotifikation from '../../../dest/vue-notifikation';
 import AppComponent from './app.vue';
 
 Vue.use(VueNotifikation);

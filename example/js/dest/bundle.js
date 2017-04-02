@@ -1,5 +1,90 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("* {\n  margin: 0;\n}\nbody {\n  font: normal 82.5%/1.5 Arial, Helvetica, sans-serif;\n  color: #fffeba;\n  background: #37405c;\n}\n.container[data-v-4bcba9d2] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 70%;\n  min-width: 600px;\n  margin: 20px auto;\n  padding: 10px;\n  box-sizing: border-box;\n  background: #44778c;\n  border-radius: 4px;\n}\n.greet[data-v-4bcba9d2] {\n  font-size: 2em;\n  text-transform: capitalize;\n}\n.btns[data-v-4bcba9d2] {\n  display: flex;\n  justify-content: space-between;\n  width: 40%;\n}\n.btn[data-v-4bcba9d2] {\n  width: 30%;\n  color: #37405c;\n  background: #f5d364;\n  border: none;\n  padding: 10px;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none;\n}\n.btn.red[data-v-4bcba9d2],\n.btn.green[data-v-4bcba9d2],\n.btn.grey[data-v-4bcba9d2] {\n  color: #fffeba;\n  font-weight: bold;\n}\n.btn.red[data-v-4bcba9d2] {\n  background: #d62624;\n}\n.btn.green[data-v-4bcba9d2] {\n  background: #86c149;\n}\n.btn.grey[data-v-4bcba9d2] {\n  background: #949098;\n}")
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.Notifikation = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(_dereq_,module,exports){
+(function (global){
+"use strict";
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+(function (f) {
+  if ((typeof exports === "undefined" ? "undefined" : _typeof(exports)) === "object" && typeof module !== "undefined") {
+    module.exports = f();
+  } else if (typeof define === "function" && define.amd) {
+    define([], f);
+  } else {
+    var g;if (typeof window !== "undefined") {
+      g = window;
+    } else if (typeof global !== "undefined") {
+      g = global;
+    } else if (typeof self !== "undefined") {
+      g = self;
+    } else {
+      g = this;
+    }g.Notifikation = f();
+  }
+})(function () {
+  var define, module, exports;return function e(t, n, r) {
+    function s(o, u) {
+      if (!n[o]) {
+        if (!t[o]) {
+          var a = typeof _dereq_ == "function" && _dereq_;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+        }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+          var n = t[o][1][e];return s(n ? n : e);
+        }, l, l.exports, e, t, n, r);
+      }return n[o].exports;
+    }var i = typeof _dereq_ == "function" && _dereq_;for (var o = 0; o < r.length; o++) {
+      s(r[o]);
+    }return s;
+  }({ 1: [function (_dereq_, module, exports) {
+      function noop() {}var inserted = exports.cache = {};exports.insert = function (e) {
+        if (inserted[e]) return noop;inserted[e] = !0;var t = document.createElement("style");return t.setAttribute("type", "text/css"), "textContent" in t ? t.textContent = e : t.styleSheet.cssText = e, document.getElementsByTagName("head")[0].appendChild(t), function () {
+          document.getElementsByTagName("head")[0].removeChild(t), inserted[e] = !1;
+        };
+      };
+    }, {}], 2: [function (_dereq_, module, exports) {
+      "use strict";
+      Object.defineProperty(exports, "__esModule", { value: !0 });var NotifikationComponent = _dereq_("./notifikation.vue"),
+          Notifikation = {};Notifikation.install = function (t, o) {
+        var e = t.extend(NotifikationComponent),
+            i = void 0;t.prototype.$show = function (t) {
+          var o = void 0,
+              r = void 0,
+              n = void 0,
+              s = void 0;document.querySelector("body");if (s = "error" === t.level ? "rgb(214, 38, 36)" : "success" === t.level ? "rgb(134, 193, 73)" : "rgb(148, 144, 152)", !i) {
+            var a = t.selector || "#notifikation";if (!document.querySelector(a)) {
+              var c = document.createElement("div");c.setAttribute("id", "notifikation"), document.querySelector("body").appendChild(c);
+            }i = new e({ data: { items: [] } }).$mount(a);
+          }r = i.$data.items, n = r.length, o = { message: t.message || "Notified!", style: { width: (t.width || 200) + "px", height: (t.height || 50) + "px", backgroundColor: t.backgroundColor || s, color: t.color || "rgb(255, 255, 255)", right: (t.right || 10) + "px", top: function (t) {
+                var o = t.height || 50,
+                    e = t.top || 10;return (n > 0 ? n * o + n * e + e : e) + "px";
+              }(t) } }, r.push(o), setTimeout(function () {
+            r.shift(), r.forEach(function (t) {
+              t.style.top = parseInt(t.style.top, 10) - 60 + "px";
+            });
+          }, t.duration || 3e3);
+        }, t.prototype.$info = function (t) {
+          this.$show(t);
+        }, t.prototype.$error = function (t) {
+          this.$show(Object.assign(t, { level: "error" }));
+        }, t.prototype.$success = function (t) {
+          this.$show(Object.assign(t, { level: "success" }));
+        };
+      }, exports.default = Notifikation;
+    }, { "./notifikation.vue": 3 }], 3: [function (_dereq_, module, exports) {
+      var __vueify_style_dispose__ = _dereq_("vueify/lib/insert-css").insert(".notification__item[data-v-76390ca4]{display:flex;align-items:center;justify-content:center;position:absolute;border-radius:4px;box-shadow:1px 1px 10px rgba(0,0,0,.4)}.notification__item.fade-enter-active[data-v-76390ca4],.notification__item.fade-leave-active[data-v-76390ca4]{transition:opacity .5s}.notification__item.fade-enter[data-v-76390ca4],.notification__item.fade-leave-to[data-v-76390ca4]{opacity:0}");!function () {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", { value: !0 }), exports.default = { name: "Notifikation", props: ["items"] };
+      }(), module.exports.__esModule && (module.exports = module.exports.default);var __vue__options__ = "function" == typeof module.exports ? module.exports.options : module.exports;__vue__options__.render = function () {
+        var t = this,
+            e = t.$createElement,
+            i = t._self._c || e;return i("div", { staticClass: "notifikation" }, [i("transition-group", { attrs: { name: "fade", tag: "div" } }, t._l(t.items, function (e, o) {
+          return i("div", { key: o, staticClass: "notification__item", style: e.style }, [t._v(t._s(e.message))]);
+        }))], 1);
+      }, __vue__options__.staticRenderFns = [], __vue__options__._scopeId = "data-v-76390ca4";
+    }, { "vueify/lib/insert-css": 1 }] }, {}, [2])(2);
+});
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],2:[function(_dereq_,module,exports){
+var __vueify_style_dispose__ = _dereq_("vueify/lib/insert-css").insert("* {\n  margin: 0;\n}\nbody {\n  font: normal 82.5%/1.5 Arial, Helvetica, sans-serif;\n  color: #fffeba;\n  background: #37405c;\n}\n.container[data-v-ad4a282a] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 70%;\n  min-width: 600px;\n  margin: 20px auto;\n  padding: 10px;\n  box-sizing: border-box;\n  background: #44778c;\n  border-radius: 4px;\n}\n.greet[data-v-ad4a282a] {\n  font-size: 2em;\n  text-transform: capitalize;\n}\n.btns[data-v-ad4a282a] {\n  display: flex;\n  justify-content: space-between;\n  width: 40%;\n}\n.btn[data-v-ad4a282a] {\n  width: 30%;\n  color: #37405c;\n  background: #f5d364;\n  border: none;\n  padding: 10px;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none;\n}\n.btn.red[data-v-ad4a282a],\n.btn.green[data-v-ad4a282a],\n.btn.grey[data-v-ad4a282a] {\n  color: #fffeba;\n  font-weight: bold;\n}\n.btn.red[data-v-ad4a282a] {\n  background: #d62624;\n}\n.btn.green[data-v-ad4a282a] {\n  background: #86c149;\n}\n.btn.grey[data-v-ad4a282a] {\n  background: #949098;\n}")
 ;(function(){
 'use strict';
 
@@ -43,36 +128,36 @@ if (__vue__options__.functional) {console.error("[vueify] functional components 
 __vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container"},[_c('p',{staticClass:"greet"},[_vm._v(_vm._s(_vm.greet))]),_vm._v(" "),_c('div',{staticClass:"btns"},_vm._l((_vm.btns),function(btn){return _c('button',{class:( _obj = {btn: true}, _obj[btn.className] = true, _obj ),attrs:{"type":"button","name":"button"},on:{"click":function($event){_vm.clickHandler(btn.txt)}}},[_vm._v(_vm._s(btn.txt))])
 var _obj;}))])}
 __vue__options__.staticRenderFns = []
-__vue__options__._scopeId = "data-v-4bcba9d2"
-if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), true)
+__vue__options__._scopeId = "data-v-ad4a282a"
+if (module.hot) {(function () {  var hotAPI = _dereq_("vue-hot-reload-api")
+  hotAPI.install(_dereq_("vue"), true)
   if (!hotAPI.compatible) return
   module.hot.accept()
   module.hot.dispose(__vueify_style_dispose__)
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4bcba9d2", __vue__options__)
+    hotAPI.createRecord("data-v-ad4a282a", __vue__options__)
   } else {
-    hotAPI.reload("data-v-4bcba9d2", __vue__options__)
+    hotAPI.reload("data-v-ad4a282a", __vue__options__)
   }
 })()}
-},{"vue":5,"vue-hot-reload-api":4,"vueify/lib/insert-css":6}],2:[function(require,module,exports){
+},{"vue":6,"vue-hot-reload-api":5,"vueify/lib/insert-css":7}],3:[function(_dereq_,module,exports){
 'use strict';
 
-var _vue = require('vue');
+var _vue = _dereq_('vue');
 
 var _vue2 = _interopRequireDefault(_vue);
 
-var _index = require('../../../src/index');
+var _vueNotifikation = _dereq_('../../../dest/vue-notifikation');
 
-var _index2 = _interopRequireDefault(_index);
+var _vueNotifikation2 = _interopRequireDefault(_vueNotifikation);
 
-var _app = require('./app.vue');
+var _app = _dereq_('./app.vue');
 
 var _app2 = _interopRequireDefault(_app);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_vue2.default.use(_index2.default);
+_vue2.default.use(_vueNotifikation2.default);
 
 new _vue2.default({
   el: '#app',
@@ -81,7 +166,7 @@ new _vue2.default({
   }
 });
 
-},{"../../../src/index":7,"./app.vue":1,"vue":5}],3:[function(require,module,exports){
+},{"../../../dest/vue-notifikation":1,"./app.vue":2,"vue":6}],4:[function(_dereq_,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -263,7 +348,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(_dereq_,module,exports){
 var Vue // late bind
 var version
 var map = window.__VUE_HOT_MAP__ = Object.create(null)
@@ -401,7 +486,7 @@ exports.reload = tryWrap(function (id, options) {
   })
 })
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(_dereq_,module,exports){
 (function (process,global){
 /*!
  * Vue.js v2.2.6
@@ -7235,8 +7320,8 @@ setTimeout(function () {
 
 module.exports = Vue$2;
 
-}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":3}],6:[function(require,module,exports){
+}).call(this,_dereq_('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"_process":4}],7:[function(_dereq_,module,exports){
 var inserted = exports.cache = {}
 
 function noop () {}
@@ -7261,128 +7346,5 @@ exports.insert = function (css) {
   }
 }
 
-},{}],7:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
+},{}]},{},[3])(3)
 });
-var NotifikationComponent = require('./notifikation.vue'),
-    Notifikation = {};
-
-Notifikation.install = function (Vue, options) {
-  var Component = Vue.extend(NotifikationComponent),
-      queue = [],
-      vm = void 0;
-
-  Vue.prototype.$show = function (options) {
-    var notifikationItem = void 0,
-        items = void 0,
-        itemsLen = void 0,
-        bgColor = void 0,
-        textColor = 'rgb(255, 255, 255)',
-        body = document.querySelector('body');
-
-    if (options.level === 'error') {
-      bgColor = 'rgb(214, 38, 36)';
-    } else if (options.level === 'success') {
-      bgColor = 'rgb(134, 193, 73)';
-    } else {
-      bgColor = 'rgb(148, 144, 152)';
-    }
-
-    if (!vm) {
-      var selector = options.selector || '#notifikation';
-
-      if (!document.querySelector(selector)) {
-        var el = document.createElement('div');
-
-        el.setAttribute('id', 'notifikation');
-        document.querySelector('body').appendChild(el);
-      }
-
-      vm = new Component({
-        data: {
-          items: []
-        }
-      }).$mount(selector);
-    }
-    items = vm.$data.items;
-    itemsLen = items.length;
-
-    function calculateTop(options) {
-      var height = options.height || 50,
-          top = options.top || 10;
-
-      return (itemsLen > 0 ? itemsLen * height + itemsLen * top + top : top) + 'px';
-    }
-
-    notifikationItem = {
-      message: options.message || 'Notified!',
-      style: {
-        width: (options.width || 200) + 'px',
-        height: (options.height || 50) + 'px',
-        backgroundColor: options.backgroundColor || bgColor,
-        color: options.color || textColor,
-        right: (options.right || 10) + 'px',
-        top: calculateTop(options)
-      }
-    };
-
-    items.push(notifikationItem);
-    setTimeout(function () {
-      items.shift();
-      items.forEach(function (item) {
-        item.style.top = parseInt(item.style.top, 10) - 60 + 'px';
-      });
-    }, options.duration || 3000);
-  };
-
-  Vue.prototype.$info = function (options) {
-    this.$show(options);
-  };
-  Vue.prototype.$error = function (options) {
-    this.$show(Object.assign(options, {
-      level: 'error'
-    }));
-  };
-  Vue.prototype.$success = function (options) {
-    this.$show(Object.assign(options, {
-      level: 'success'
-    }));
-  };
-};
-
-exports.default = Notifikation;
-
-},{"./notifikation.vue":8}],8:[function(require,module,exports){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert(".notification__item[data-v-19d626d0] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: absolute;\n  border-radius: 4px;\n  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);\n}\n.notification__item.fade-enter-active[data-v-19d626d0],\n.notification__item.fade-leave-active[data-v-19d626d0] {\n  transition: opacity .5s;\n}\n.notification__item.fade-enter[data-v-19d626d0],\n.notification__item.fade-leave-to[data-v-19d626d0] {\n  opacity: 0;\n}")
-;(function(){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = {
-  name: 'Notifikation',
-  props: ['items']
-};
-})()
-if (module.exports.__esModule) module.exports = module.exports.default
-var __vue__options__ = (typeof module.exports === "function"? module.exports.options: module.exports)
-if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
-__vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"notifikation"},[_c('transition-group',{attrs:{"name":"fade","tag":"div"}},_vm._l((_vm.items),function(item, key){return _c('div',{key:key,staticClass:"notification__item",style:(item.style)},[_vm._v(_vm._s(item.message))])}))],1)}
-__vue__options__.staticRenderFns = []
-__vue__options__._scopeId = "data-v-19d626d0"
-if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), true)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  module.hot.dispose(__vueify_style_dispose__)
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-19d626d0", __vue__options__)
-  } else {
-    hotAPI.reload("data-v-19d626d0", __vue__options__)
-  }
-})()}
-},{"vue":5,"vue-hot-reload-api":4,"vueify/lib/insert-css":6}]},{},[2]);

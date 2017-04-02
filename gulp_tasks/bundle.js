@@ -2,6 +2,7 @@ let gulp = require('gulp'),
   util = require('gulp-util'),
   source = require('vinyl-source-stream'),
   browserify = require('browserify'),
+  derequire = require('browserify-derequire'),
   vueify = require('vueify'),
   eslintify = require('eslintify'),
   uglifyify = require('uglifyify'),
@@ -39,12 +40,12 @@ module.exports = (watch, done) => {
       basedir: watch ? `${PUBLIC_PATH}/example` : PUBLIC_PATH,
       entries: watch ? `js/src/main.js` : `src/index.js`,
       cache: {},
-      packageCache: {}
+      packageCache: {},
+      standalone: 'Notifikation'
     })
+    .plugin(derequire)
     .transform(eslintify)
-    .transform(babelify, {
-      presets: ['es2015']
-    })
+    .transform(babelify)
     .transform(vueify),
     args = [b];
 
@@ -55,6 +56,7 @@ module.exports = (watch, done) => {
       bundle(b);
     });
   } else {
+    process.env.NODE_ENV = 'production';
     b
     .transform(uglifyify, {
       global: true
