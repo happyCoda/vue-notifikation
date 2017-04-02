@@ -1,15 +1,23 @@
 {
   "name": "vue-notifikation",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "vue plugin for notifications",
+  "main": "chronos.js",
   "scripts": {},
   "keywords": [
-    "gulp",
     "vuejs",
     "js",
     "plugin",
     "notifications"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/happyCoda/vue-notifikation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/happyCoda/vue-notifikation/issues"
+  },
+  "homepage": "https://github.com/happyCoda/vue-notifikation",
   "author": "happyCoda",
   "license": "ISC",
   "devDependencies": {

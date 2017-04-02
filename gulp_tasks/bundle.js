@@ -11,7 +11,7 @@ let gulp = require('gulp'),
 
 const PUBLIC_PATH = config.PUBLIC_PATH;
 const BUILD_PATH = `${PUBLIC_PATH}/dest`;
-const PLUGIN_FILE_NAME = 'notifikation.js';
+const PLUGIN_FILE_NAME = 'vue-notifikation.js';
 
 function bundle(b, done) {
   let startBundle = Date.now();
@@ -37,7 +37,7 @@ function bundle(b, done) {
 module.exports = (watch, done) => {
   let b = browserify({
       basedir: watch ? `${PUBLIC_PATH}/example` : PUBLIC_PATH,
-      entries: watch ? `js/src/main.js` : `src/${PLUGIN_FILE_NAME}`,
+      entries: watch ? `js/src/main.js` : `src/index.js`,
       cache: {},
       packageCache: {}
     })

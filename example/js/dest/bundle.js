@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("* {\n  margin: 0;\n}\nbody {\n  font: normal 82.5%/1.5 Arial, Helvetica, sans-serif;\n  color: #fffeba;\n  background: #37405c;\n}\n.container[data-v-2e737726] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 70%;\n  min-width: 600px;\n  margin: 20px auto;\n  padding: 10px;\n  box-sizing: border-box;\n  background: #44778c;\n  border-radius: 4px;\n}\n.greet[data-v-2e737726] {\n  font-size: 2em;\n  text-transform: capitalize;\n}\n.btns[data-v-2e737726] {\n  display: flex;\n  justify-content: space-between;\n  width: 40%;\n}\n.btn[data-v-2e737726] {\n  width: 30%;\n  color: #37405c;\n  background: #f5d364;\n  border: none;\n  padding: 10px;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none;\n}\n.btn.red[data-v-2e737726],\n.btn.green[data-v-2e737726],\n.btn.grey[data-v-2e737726] {\n  color: #fffeba;\n  font-weight: bold;\n}\n.btn.red[data-v-2e737726] {\n  background: #d62624;\n}\n.btn.green[data-v-2e737726] {\n  background: #86c149;\n}\n.btn.grey[data-v-2e737726] {\n  background: #949098;\n}")
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert("* {\n  margin: 0;\n}\nbody {\n  font: normal 82.5%/1.5 Arial, Helvetica, sans-serif;\n  color: #fffeba;\n  background: #37405c;\n}\n.container[data-v-4bcba9d2] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 70%;\n  min-width: 600px;\n  margin: 20px auto;\n  padding: 10px;\n  box-sizing: border-box;\n  background: #44778c;\n  border-radius: 4px;\n}\n.greet[data-v-4bcba9d2] {\n  font-size: 2em;\n  text-transform: capitalize;\n}\n.btns[data-v-4bcba9d2] {\n  display: flex;\n  justify-content: space-between;\n  width: 40%;\n}\n.btn[data-v-4bcba9d2] {\n  width: 30%;\n  color: #37405c;\n  background: #f5d364;\n  border: none;\n  padding: 10px;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none;\n}\n.btn.red[data-v-4bcba9d2],\n.btn.green[data-v-4bcba9d2],\n.btn.grey[data-v-4bcba9d2] {\n  color: #fffeba;\n  font-weight: bold;\n}\n.btn.red[data-v-4bcba9d2] {\n  background: #d62624;\n}\n.btn.green[data-v-4bcba9d2] {\n  background: #86c149;\n}\n.btn.grey[data-v-4bcba9d2] {\n  background: #949098;\n}")
 ;(function(){
 'use strict';
 
@@ -43,16 +43,16 @@ if (__vue__options__.functional) {console.error("[vueify] functional components 
 __vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container"},[_c('p',{staticClass:"greet"},[_vm._v(_vm._s(_vm.greet))]),_vm._v(" "),_c('div',{staticClass:"btns"},_vm._l((_vm.btns),function(btn){return _c('button',{class:( _obj = {btn: true}, _obj[btn.className] = true, _obj ),attrs:{"type":"button","name":"button"},on:{"click":function($event){_vm.clickHandler(btn.txt)}}},[_vm._v(_vm._s(btn.txt))])
 var _obj;}))])}
 __vue__options__.staticRenderFns = []
-__vue__options__._scopeId = "data-v-2e737726"
+__vue__options__._scopeId = "data-v-4bcba9d2"
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   module.hot.accept()
   module.hot.dispose(__vueify_style_dispose__)
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2e737726", __vue__options__)
+    hotAPI.createRecord("data-v-4bcba9d2", __vue__options__)
   } else {
-    hotAPI.reload("data-v-2e737726", __vue__options__)
+    hotAPI.reload("data-v-4bcba9d2", __vue__options__)
   }
 })()}
 },{"vue":42,"vue-hot-reload-api":41,"vueify/lib/insert-css":43}],2:[function(require,module,exports){
@@ -62,9 +62,9 @@ var _vue = require('vue');
 
 var _vue2 = _interopRequireDefault(_vue);
 
-var _notifikation = require('../../../src/notifikation');
+var _index = require('../../../src/index');
 
-var _notifikation2 = _interopRequireDefault(_notifikation);
+var _index2 = _interopRequireDefault(_index);
 
 var _app = require('./app.vue');
 
@@ -72,7 +72,7 @@ var _app2 = _interopRequireDefault(_app);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_vue2.default.use(_notifikation2.default);
+_vue2.default.use(_index2.default);
 
 new _vue2.default({
   el: '#app',
@@ -81,7 +81,7 @@ new _vue2.default({
   }
 });
 
-},{"../../../src/notifikation":44,"./app.vue":1,"vue":42}],3:[function(require,module,exports){
+},{"../../../src/index":44,"./app.vue":1,"vue":42}],3:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/object/assign"), __esModule: true };
 },{"core-js/library/fn/object/assign":4}],4:[function(require,module,exports){
 require('../../modules/es6.object.assign');
@@ -7720,7 +7720,7 @@ Notifikation.install = function (Vue, options) {
 exports.default = Notifikation;
 
 },{"./notifikation.vue":45,"babel-runtime/core-js/object/assign":3}],45:[function(require,module,exports){
-var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert(".notification__item[data-v-04e12a9f] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: absolute;\n  border-radius: 4px;\n  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);\n}\n.notification__item.fade-enter-active[data-v-04e12a9f],\n.notification__item.fade-leave-active[data-v-04e12a9f] {\n  transition: opacity .5s;\n}\n.notification__item.fade-enter[data-v-04e12a9f],\n.notification__item.fade-leave-to[data-v-04e12a9f] {\n  opacity: 0;\n}")
+var __vueify_style_dispose__ = require("vueify/lib/insert-css").insert(".notification__item[data-v-19d626d0] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: absolute;\n  border-radius: 4px;\n  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);\n}\n.notification__item.fade-enter-active[data-v-19d626d0],\n.notification__item.fade-leave-active[data-v-19d626d0] {\n  transition: opacity .5s;\n}\n.notification__item.fade-enter[data-v-19d626d0],\n.notification__item.fade-leave-to[data-v-19d626d0] {\n  opacity: 0;\n}")
 ;(function(){
 'use strict';
 
@@ -7737,16 +7737,16 @@ var __vue__options__ = (typeof module.exports === "function"? module.exports.opt
 if (__vue__options__.functional) {console.error("[vueify] functional components are not supported and should be defined in plain js files using render functions.")}
 __vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"notifikation"},[_c('transition-group',{attrs:{"name":"fade","tag":"div"}},_vm._l((_vm.items),function(item, key){return _c('div',{key:key,staticClass:"notification__item",style:(item.style)},[_vm._v(_vm._s(item.message))])}))],1)}
 __vue__options__.staticRenderFns = []
-__vue__options__._scopeId = "data-v-04e12a9f"
+__vue__options__._scopeId = "data-v-19d626d0"
 if (module.hot) {(function () {  var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   module.hot.accept()
   module.hot.dispose(__vueify_style_dispose__)
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-04e12a9f", __vue__options__)
+    hotAPI.createRecord("data-v-19d626d0", __vue__options__)
   } else {
-    hotAPI.reload("data-v-04e12a9f", __vue__options__)
+    hotAPI.reload("data-v-19d626d0", __vue__options__)
   }
 })()}
 },{"vue":42,"vue-hot-reload-api":41,"vueify/lib/insert-css":43}]},{},[2]);
