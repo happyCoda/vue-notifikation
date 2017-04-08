@@ -1,5 +1,5 @@
 # vue-notifikation
-Vue.js notification plugin
+[![npm](https://img.shields.io/npm/v/vue-notifikation.svg?style=flat-square)](https://www.npmjs.com/package/vue-notifikation) [![Vue](https://img.shields.io/badge/vue-2.x-brightgreen.svg?style=flat-square)](https://vuejs.org/)
 
 ## Installation
 Library can be installed via downloading a git repo:
