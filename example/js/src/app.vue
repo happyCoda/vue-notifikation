@@ -38,10 +38,11 @@
     methods: {
       clickHandler(level) {
 
-        this[`$${level.substr(0, 1).toLowerCase() + level.substr(1)}`]({
+        this.$notifikation[`${level.substr(0, 1).toLowerCase() + level.substr(1)}`]({
           message: `Hello#${this.count++}`,
           selector: '#notifikation',
-          color: 'rgb(255, 254, 186)'
+          color: 'rgb(255, 254, 186)',
+          duration: 5000
         });
       }
     }

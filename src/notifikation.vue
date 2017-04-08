@@ -3,9 +3,10 @@
     <transition-group name="fade" tag="div">
       <div
         class="notification__item"
-        v-for="item, key in items"
-        v-bind:key="key"
+        v-for="item, idx in items"
+        v-bind:key="idx"
         v-bind:style="item.style"
+        v-on:click.stop="dismiss(idx)"
       >{{ item.message }}</div>
     </transition-group>
   </div>
@@ -13,7 +14,11 @@
 <script>
   export default {
     name: 'Notifikation',
-    props: ['items']
+    methods: {
+      dismiss(idx) {
+        this.$notifikation.dismiss(idx);
+      }
+    }
   }
 </script>
 <style lang="less" scoped>
@@ -23,8 +28,10 @@
       align-items: center;
       justify-content: center;
       position: absolute;
+      z-index: 10000;
       border-radius: 4px;
       box-shadow: 1px 1px 10px rgba(0, 0, 0, .4);
+      cursor: pointer;
 
       &.fade-enter-active,
       &.fade-leave-active {
