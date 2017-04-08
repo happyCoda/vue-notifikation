@@ -1,7 +1,6 @@
-let jsSrcPath = 'public/js/src/**/*.js',
-  jsSpecPath = 'test/**/*.spec.js',
+let jsSpecPath = 'test/**/*.spec.js',
   sourceProcessors = ['browserify'],
-  sourceReporters = ['progress'],
+  sourceReporters = ['spec'],
   sourceSingleRun = true;
 
 module.exports = function(config) {
@@ -13,12 +12,11 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['browserify', 'jasmine'],
+    frameworks: ['browserify', 'jasmine', 'es6-shim'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      jsSrcPath,
       jsSpecPath
     ],
 
@@ -30,14 +28,13 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'public/js/src/**/*.js': sourceProcessors,
       'test/**/*.spec.js': sourceProcessors
     },
 
 
     browserify: {
       debug: true,
-      transform: [['babelify']]
+      transform: [['babelify'], ['vueify']]
     },
 
 
@@ -45,6 +42,22 @@ module.exports = function(config) {
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     reporters: sourceReporters,
+
+    specReporter: {
+      maxLogLines: 5,         // limit number of lines logged per test
+      suppressErrorSummary: true,  // do not print error summary
+      suppressFailed: false,  // do not print information about failed tests
+      suppressPassed: false,  // do not print information about passed tests
+      suppressSkipped: true,  // do not print information about skipped tests
+      showSpecTiming: false // print the time elapsed for each spec
+    },
+    plugins: [
+      'karma-spec-reporter',
+      'karma-jasmine',
+      'karma-browserify',
+      'karma-es6-shim',
+      'karma-phantomjs-launcher'
+    ],
 
 
     // web server port

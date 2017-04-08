@@ -42,49 +42,60 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }, {}], 2: [function (_dereq_, module, exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: !0 });var NotifikationComponent = _dereq_("./notifikation.vue"),
-          Notifikation = {};Notifikation.install = function (t, o) {
-        var e = t.extend(NotifikationComponent),
-            i = void 0;t.prototype.$show = function (t) {
-          var o = void 0,
-              r = void 0,
-              n = void 0,
-              s = void 0;document.querySelector("body");if (s = "error" === t.level ? "rgb(214, 38, 36)" : "success" === t.level ? "rgb(134, 193, 73)" : "rgb(148, 144, 152)", !i) {
-            var a = t.selector || "#notifikation";if (!document.querySelector(a)) {
-              var c = document.createElement("div");c.setAttribute("id", "notifikation"), document.querySelector("body").appendChild(c);
-            }i = new e({ data: { items: [] } }).$mount(a);
-          }r = i.$data.items, n = r.length, o = { message: t.message || "Notified!", style: { width: (t.width || 200) + "px", height: (t.height || 50) + "px", backgroundColor: t.backgroundColor || s, color: t.color || "rgb(255, 255, 255)", right: (t.right || 10) + "px", top: function (t) {
-                var o = t.height || 50,
-                    e = t.top || 10;return (n > 0 ? n * o + n * e + e : e) + "px";
-              }(t) } }, r.push(o), setTimeout(function () {
-            r.shift(), r.forEach(function (t) {
-              t.style.top = parseInt(t.style.top, 10) - 60 + "px";
-            });
-          }, t.duration || 3e3);
-        }, t.prototype.$info = function (t) {
-          this.$show(t);
-        }, t.prototype.$error = function (t) {
-          this.$show(Object.assign(t, { level: "error" }));
-        }, t.prototype.$success = function (t) {
-          this.$show(Object.assign(t, { level: "success" }));
-        };
+          Notifikation = {};Notifikation.install = function (t, e) {
+        var o = t.extend(NotifikationComponent),
+            i = void 0;t.prototype.$notifikation = { show: function show(t) {
+            var e = void 0,
+                n = void 0,
+                r = void 0,
+                s = void 0;document.querySelector("body");if (s = "error" === t.level ? "rgb(214, 38, 36)" : "success" === t.level ? "rgb(134, 193, 73)" : "rgb(148, 144, 152)", !i) {
+              var a = t.selector || "#notifikation";if (!document.querySelector(a)) {
+                var d = document.createElement("div");d.setAttribute("id", "notifikation"), document.querySelector("body").appendChild(d);
+              }i = new o({ data: { items: [] } }).$mount(a);
+            }n = i.$data.items, r = n.length, e = { message: t.message || "Notified!", style: { width: (t.width || 200) + "px", height: (t.height || 50) + "px", backgroundColor: t.backgroundColor || s, color: t.color || "rgb(255, 255, 255)", right: (t.right || 10) + "px", top: function (t) {
+                  var e = t.height || 50,
+                      o = t.top || 10;return (r > 0 ? r * e + r * o + o : o) + "px";
+                }(t) } }, i.$data.items.push(e), setTimeout(function () {
+              i.$data.items.shift(), i.$data.items.forEach(function (t) {
+                t.style.top = parseInt(t.style.top, 10) - 60 + "px";
+              });
+            }, t.duration || 3e3);
+          }, info: function info(t) {
+            this.show(t);
+          }, error: function error(t) {
+            this.show(Object.assign(t, { level: "error" }));
+          }, success: function success(t) {
+            this.show(Object.assign(t, { level: "success" }));
+          }, dismiss: function dismiss(t) {
+            var e = void 0,
+                o = void 0;for (i.$data.items = t ? i.$data.items.filter(function (e, o) {
+              return o !== t;
+            }) : [], e = i.$data.items.length, o = t; o < e; o += 1) {
+              var n = i.$data.items[o];n.style.top = parseInt(n.style.top, 10) - 60 + "px";
+            }
+          } };
       }, exports.default = Notifikation;
     }, { "./notifikation.vue": 3 }], 3: [function (_dereq_, module, exports) {
-      var __vueify_style_dispose__ = _dereq_("vueify/lib/insert-css").insert(".notification__item[data-v-76390ca4]{display:flex;align-items:center;justify-content:center;position:absolute;border-radius:4px;box-shadow:1px 1px 10px rgba(0,0,0,.4)}.notification__item.fade-enter-active[data-v-76390ca4],.notification__item.fade-leave-active[data-v-76390ca4]{transition:opacity .5s}.notification__item.fade-enter[data-v-76390ca4],.notification__item.fade-leave-to[data-v-76390ca4]{opacity:0}");!function () {
+      var __vueify_style_dispose__ = _dereq_("vueify/lib/insert-css").insert(".notification__item[data-v-19d626d0]{display:flex;align-items:center;justify-content:center;position:absolute;z-index:10000;border-radius:4px;box-shadow:1px 1px 10px rgba(0,0,0,.4);cursor:pointer}.notification__item.fade-enter-active[data-v-19d626d0],.notification__item.fade-leave-active[data-v-19d626d0]{transition:opacity .5s}.notification__item.fade-enter[data-v-19d626d0],.notification__item.fade-leave-to[data-v-19d626d0]{opacity:0}");!function () {
         "use strict";
-        Object.defineProperty(exports, "__esModule", { value: !0 }), exports.default = { name: "Notifikation", props: ["items"] };
+        Object.defineProperty(exports, "__esModule", { value: !0 }), exports.default = { name: "Notifikation", methods: { dismiss: function dismiss(t) {
+              this.$notifikation.dismiss(t);
+            } } };
       }(), module.exports.__esModule && (module.exports = module.exports.default);var __vue__options__ = "function" == typeof module.exports ? module.exports.options : module.exports;__vue__options__.render = function () {
         var t = this,
             e = t.$createElement,
             i = t._self._c || e;return i("div", { staticClass: "notifikation" }, [i("transition-group", { attrs: { name: "fade", tag: "div" } }, t._l(t.items, function (e, o) {
-          return i("div", { key: o, staticClass: "notification__item", style: e.style }, [t._v(t._s(e.message))]);
+          return i("div", { key: o, staticClass: "notification__item", style: e.style, on: { click: function click(e) {
+                e.stopPropagation(), t.dismiss(o);
+              } } }, [t._v(t._s(e.message))]);
         }))], 1);
-      }, __vue__options__.staticRenderFns = [], __vue__options__._scopeId = "data-v-76390ca4";
+      }, __vue__options__.staticRenderFns = [], __vue__options__._scopeId = "data-v-19d626d0";
     }, { "vueify/lib/insert-css": 1 }] }, {}, [2])(2);
 });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],2:[function(_dereq_,module,exports){
-var __vueify_style_dispose__ = _dereq_("vueify/lib/insert-css").insert("* {\n  margin: 0;\n}\nbody {\n  font: normal 82.5%/1.5 Arial, Helvetica, sans-serif;\n  color: #fffeba;\n  background: #37405c;\n}\n.container[data-v-ad4a282a] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 70%;\n  min-width: 600px;\n  margin: 20px auto;\n  padding: 10px;\n  box-sizing: border-box;\n  background: #44778c;\n  border-radius: 4px;\n}\n.greet[data-v-ad4a282a] {\n  font-size: 2em;\n  text-transform: capitalize;\n}\n.btns[data-v-ad4a282a] {\n  display: flex;\n  justify-content: space-between;\n  width: 40%;\n}\n.btn[data-v-ad4a282a] {\n  width: 30%;\n  color: #37405c;\n  background: #f5d364;\n  border: none;\n  padding: 10px;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none;\n}\n.btn.red[data-v-ad4a282a],\n.btn.green[data-v-ad4a282a],\n.btn.grey[data-v-ad4a282a] {\n  color: #fffeba;\n  font-weight: bold;\n}\n.btn.red[data-v-ad4a282a] {\n  background: #d62624;\n}\n.btn.green[data-v-ad4a282a] {\n  background: #86c149;\n}\n.btn.grey[data-v-ad4a282a] {\n  background: #949098;\n}")
+var __vueify_style_dispose__ = _dereq_("vueify/lib/insert-css").insert("* {\n  margin: 0;\n}\nbody {\n  font: normal 82.5%/1.5 Arial, Helvetica, sans-serif;\n  color: #fffeba;\n  background: #37405c;\n}\n.container[data-v-4bcba9d2] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 70%;\n  min-width: 600px;\n  margin: 20px auto;\n  padding: 10px;\n  box-sizing: border-box;\n  background: #44778c;\n  border-radius: 4px;\n}\n.greet[data-v-4bcba9d2] {\n  font-size: 2em;\n  text-transform: capitalize;\n}\n.btns[data-v-4bcba9d2] {\n  display: flex;\n  justify-content: space-between;\n  width: 40%;\n}\n.btn[data-v-4bcba9d2] {\n  width: 30%;\n  color: #37405c;\n  background: #f5d364;\n  border: none;\n  padding: 10px;\n  border-radius: 4px;\n  cursor: pointer;\n  outline: none;\n}\n.btn.red[data-v-4bcba9d2],\n.btn.green[data-v-4bcba9d2],\n.btn.grey[data-v-4bcba9d2] {\n  color: #fffeba;\n  font-weight: bold;\n}\n.btn.red[data-v-4bcba9d2] {\n  background: #d62624;\n}\n.btn.green[data-v-4bcba9d2] {\n  background: #86c149;\n}\n.btn.grey[data-v-4bcba9d2] {\n  background: #949098;\n}")
 ;(function(){
 'use strict';
 
@@ -113,10 +124,11 @@ exports.default = {
   methods: {
     clickHandler: function clickHandler(level) {
 
-      this['$' + (level.substr(0, 1).toLowerCase() + level.substr(1))]({
+      this.$notifikation['' + (level.substr(0, 1).toLowerCase() + level.substr(1))]({
         message: 'Hello#' + this.count++,
         selector: '#notifikation',
-        color: 'rgb(255, 254, 186)'
+        color: 'rgb(255, 254, 186)',
+        duration: 5000
       });
     }
   }
@@ -128,16 +140,16 @@ if (__vue__options__.functional) {console.error("[vueify] functional components 
 __vue__options__.render = function render () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container"},[_c('p',{staticClass:"greet"},[_vm._v(_vm._s(_vm.greet))]),_vm._v(" "),_c('div',{staticClass:"btns"},_vm._l((_vm.btns),function(btn){return _c('button',{class:( _obj = {btn: true}, _obj[btn.className] = true, _obj ),attrs:{"type":"button","name":"button"},on:{"click":function($event){_vm.clickHandler(btn.txt)}}},[_vm._v(_vm._s(btn.txt))])
 var _obj;}))])}
 __vue__options__.staticRenderFns = []
-__vue__options__._scopeId = "data-v-ad4a282a"
+__vue__options__._scopeId = "data-v-4bcba9d2"
 if (module.hot) {(function () {  var hotAPI = _dereq_("vue-hot-reload-api")
   hotAPI.install(_dereq_("vue"), true)
   if (!hotAPI.compatible) return
   module.hot.accept()
   module.hot.dispose(__vueify_style_dispose__)
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-ad4a282a", __vue__options__)
+    hotAPI.createRecord("data-v-4bcba9d2", __vue__options__)
   } else {
-    hotAPI.reload("data-v-ad4a282a", __vue__options__)
+    hotAPI.reload("data-v-4bcba9d2", __vue__options__)
   }
 })()}
 },{"vue":6,"vue-hot-reload-api":5,"vueify/lib/insert-css":7}],3:[function(_dereq_,module,exports){

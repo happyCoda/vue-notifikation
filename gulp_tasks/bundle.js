@@ -44,7 +44,10 @@ module.exports = (watch, done) => {
       standalone: 'Notifikation'
     })
     .plugin(derequire)
-    .transform(eslintify)
+    .transform({
+      'quiet-ignored': true,
+      continuous: true
+    }, eslintify)
     .transform(babelify)
     .transform(vueify),
     args = [b];

@@ -42,41 +42,48 @@ export default {
   methods: {
     someVeryUsefullMethod() {
       // That's it!
-      this.$show(options);
+      this.$notifikation.show(options);
     }
   }
 }
 ```
 
 ### API
-There are 4 methods for calling notifications.
+There are 4 methods for calling notifications and one for dismiss them.
 
-#### $show
+#### show
 Generic method. Can create notifications of any level (error, success or info);
 
 ```js
-this.$show(options);
+this.$notifikation.show(options);
 ```
 
-#### $error
-As it's name says, `$error` method creates error level notifications.
+#### error
+As it's name says, `error` method creates error level notifications.
 
 ```js
-this.$error(options);
+this.$notifikation.error(options);
 ```
 
-#### $success
+#### success
 This method creates notifications for any good news.
 
 ```js
-this.$success(options);
+this.$notifikation.success(options);
 ```
 
-#### $info
-Use `$info` method whenever you need some regular notification.
+#### info
+Use `info` method whenever you need some regular notification.
 
 ```js
-this.$info(options);
+this.$notifikation.info(options);
+```
+
+#### dismiss
+To close notifikation bubble call `dismiss` method. Method accepts single parameter – notifikationId. This parameter is optional, and if omitted, all notifications will be dismissed.
+
+```js
+this.$notifikation.dismiss(notifikationId);
 ```
 
 #### options
@@ -106,7 +113,7 @@ export default {
   methods: {
     veryImportantMethod() {
       // That's it!
-      this.$success({
+      this.$notifikation.success({
         message: `You've just von 1 000 000$!!!`
       });
     }
