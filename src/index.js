@@ -11,6 +11,7 @@ Notifikation.install = function (Vue, options) {
       let notifikationItem,
         items,
         itemsLen,
+        defaultStyle,
         bgColor,
         textColor = 'rgb(255, 255, 255)',
         body = document.querySelector('body');
@@ -22,6 +23,15 @@ Notifikation.install = function (Vue, options) {
       } else {
         bgColor = 'rgb(148, 144, 152)';
       }
+
+      defaultStyle = {
+        width: `${200}px`,
+        height: `${50}px`,
+        backgroundColor: bgColor,
+        color: textColor,
+        right: `${10}px`,
+        top: `${10}px`
+      };
 
       if (!vm) {
         let selector = options.selector || '#notifikation';
@@ -43,29 +53,22 @@ Notifikation.install = function (Vue, options) {
       itemsLen = items.length;
 
       function calculateTop(options) {
-        let height = options.height || 50,
-          top = options.top || 10;
+        let height = options.style.height || 50,
+          top = options.style.top || 10;
 
         return `${itemsLen > 0 ? (itemsLen * height) + (itemsLen * top) + top : top}px`;
       }
 
       notifikationItem = {
         message: options.message || 'Notified!',
-        style: {
-          width: `${options.width || 200}px`,
-          height: `${options.height || 50}px`,
-          backgroundColor: options.backgroundColor || bgColor,
-          color: options.color || textColor,
-          right: `${options.right || 10}px`,
-          top: calculateTop(options)
-        }
+        style: Object.assign(defaultStyle, options.style || {}, { top: calculateTop(options) })
       };
 
       vm.$data.items.push(notifikationItem);
       setTimeout(() => {
         vm.$data.items.shift();
         vm.$data.items.forEach((item) => {
-          item.style.top = `${parseInt(item.style.top, 10) - 60}px`;
+          item.style.top = `${parseInt(item.style.top, 10) - item.style.height}px`;
         });
       }, options.duration || 3000);
     },
@@ -93,7 +96,7 @@ Notifikation.install = function (Vue, options) {
 
       for (i = notifikationId; i < itemsLen; i += 1) {
         let item = vm.$data.items[i];
-        item.style.top = `${parseInt(item.style.top, 10) - 60}px`;
+        item.style.top = `${parseInt(item.style.top, 10) - item.style.height}px`;
       }
     }
   };
